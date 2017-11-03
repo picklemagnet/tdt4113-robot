@@ -1,3 +1,4 @@
+from random import randint
 class Arbitrator:
     def __init__(self):
         self.behaviours = []
@@ -21,10 +22,21 @@ class Arbitrator:
     def run_one_timestep(self):
         pass
 
-    def choose_action(actions,self):
+    def choose_action(actions,deterministic=True,self):
+        if deterministic:
+            return max(actions)[1]
+        else:
+            s = sum(zip(*actions).__next__())
+            weighted = [x[0] for x in actions]
+            rand_act = randint(0,100)
+            for i in range(len(weighted)):
+                weighted[i] = 100*weighted[i]/s
+                if i>0:
+                    weighted[i] += weighted[i-1]
+                if weighted[i]>=rand_act:
+                    return action[i][1]
         # Return tuple containing motor recommendations (one per motob) and a boolean indicating
         # whether or not the run should be halted
-        return max(actions)[1]
 
 
 class Sensob:
