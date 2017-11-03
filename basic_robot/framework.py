@@ -1,4 +1,4 @@
-class BBCON:
+class Arbitrator:
     def __init__(self):
         self.behaviours = []
         self.active_behaviours = []
@@ -21,6 +21,11 @@ class BBCON:
     def run_one_timestep(self):
         pass
 
+    def choose_action(actions,self):
+        # Return tuple containing motor recommendations (one per motob) and a boolean indicating
+        # whether or not the run should be halted
+        return max(actions)[1]
+
 
 class Sensob:
     def __init__(self):
@@ -37,36 +42,16 @@ class Sensob:
 
 
 class Behaviour:
-    def __init__(self, bbcon, priority):
-        self.bbcon = bbcon
+    def __init__(self, arbitrator):
+        self.arbitrator = arbitrator
         self.sensobs = []
-        self.motor_recommendations = []
-        self.active_flag = 0
-        self.priority = priority
-        self.match_degree = 0  # Set this depending on sensor data
         self.weight = 0  # priority * match_degree
-
-    def consider_deactivation(self):
-        pass
-
-    def consider_activation(self):
-        pass
 
     def sense_and_act(self):
         pass  # Read data from sensobs, and set match_degree and motor_recommendations
 
     def update(self):
         pass  # Call sense_and_act, and update weight
-
-
-class Arbitrator:
-    def __init__(self):
-        pass
-
-    def choose_action(actions,self):
-        # Return tuple containing motor recommendations (one per motob) and a boolean indicating
-        # whether or not the run should be halted
-        return max(actions)[1]
 
 
 class Motob:
