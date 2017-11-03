@@ -10,7 +10,11 @@ class IsItClose(Sensob):
 
     def set_value(self):
         ultra, reflectance = self.sensors
-        ultra.setup()
+        #ultra.update()
+        value_ultra = ultra.get_value()
+
+        #reflectance.update()
+        value_reflectance = reflectance.get_value()
 
 
 isitclose = IsItClose()
