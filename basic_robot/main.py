@@ -1,4 +1,4 @@
-from framework import BBCON
+from framework import Arbitrator
 
 
 class Main(BBCON):
