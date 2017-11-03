@@ -63,9 +63,10 @@ class Arbitrator:
     def __init__(self):
         pass
 
-    def choose_action(self):
-        pass  # Return tuple containing motor recommendations (one per motob) and a boolean indicating
-              # whether or not the run should be halted
+    def choose_action(actions,self):
+        # Return tuple containing motor recommendations (one per motob) and a boolean indicating
+        # whether or not the run should be halted
+        return max(actions)[1]
 
 
 class Motob:
