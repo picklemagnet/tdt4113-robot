@@ -22,7 +22,7 @@ class Arbitrator:
     def run_one_timestep(self):
         pass
 
-    def choose_action(actions,deterministic=True,self):
+    def choose_action(self, actions,deterministic=True):
         if deterministic:
             return max(actions)[1]
         else:
@@ -34,7 +34,7 @@ class Arbitrator:
                 if i>0:
                     weighted[i] += weighted[i-1]
                 if weighted[i]>=rand_act:
-                    return action[i][1]
+                    return actions[i][1]
         # Return tuple containing motor recommendations (one per motob) and a boolean indicating
         # whether or not the run should be halted
 
@@ -76,6 +76,3 @@ class Motob:
 
     def operationalize(self):
         pass
-
-
-
