@@ -1,10 +1,10 @@
-import framework
+from framework import Sensob
 from PIL import Image
-from imager2 import Imager
-from camera import Camera
+from utilities.imager2 import Imager
+from utilities.camera import Camera
 import itertools
 
-class IsScary(framework.Sensob):
+class IsItScary(Sensob):
     def __init__(self, camera: Camera):
         super().__init__()
         self.sensors.append(camera)
@@ -19,5 +19,3 @@ class IsScary(framework.Sensob):
 
     def set_value(self):
         self.value = self.average_shade(self.sensors[0].get_value())/255
-
-scaredycat = IsScary()
