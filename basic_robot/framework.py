@@ -22,6 +22,25 @@ class BBCON:
     def run_one_timestep(self):
         pass
 
+
+class Sensob:
+    def __init__(self):
+        self.sensors = []
+        self.value = 0
+
+    def update(self):
+        for sensor in self.sensors:
+            sensor.update()
+
+    def set_value(self):
+        pass
+        # DO STUFF HERE with sensor.get_value()
+
+
+class Arbitrator:
+    def __init__(self):
+        pass
+
     def choose_action(self, actions, deterministic=True):
         if deterministic:
             return max(actions)[1]
@@ -37,20 +56,6 @@ class BBCON:
                     return actions[i][1]
         # Return tuple containing motor recommendations (one per motob) and a boolean indicating
         # whether or not the run should be halted
-
-
-class Sensob:
-    def __init__(self):
-        self.sensors = []
-        self.value = 0
-
-    def update(self):
-        for sensor in self.sensors:
-            sensor.update()
-
-    def set_value(self):
-        pass
-        # DO STUFF HERE with sensor.get_value()
 
 
 class Behaviour:
