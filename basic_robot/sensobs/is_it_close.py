@@ -14,10 +14,12 @@ class IsItClose(Sensob):
         self.ultra.update()
         value_ultra = self.ultra.get_value()
 
-        #reflectance.update()
-        #value_reflectance = reflectance.get_value()
+        self.reflectance.update()
+        value_reflectance = self.reflectance.get_value()
 
         print(value_ultra)
+        print(value_reflectance)
+        print()
 
 
 isitclose = IsItClose()
