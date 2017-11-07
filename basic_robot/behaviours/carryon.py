@@ -1,6 +1,6 @@
 from framework import Behaviour
 
-class Carry_On(Behaviour):
+class CarryOn(Behaviour):
 
     def __init__(self, arbitrator, is_it_close, is_it_scary):
         Behaviour.__init__(arbitrator)

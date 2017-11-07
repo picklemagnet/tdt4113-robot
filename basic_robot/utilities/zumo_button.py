@@ -11,10 +11,7 @@ class ZumoButton():
         self.wait_for_press()
 
     def wait_for_press(self):
-        read_val = wp.digitalRead(22)
-        while read_val:
-            read_val = wp.digitalRead(22)
-        self.pressed = 1 - self.pressed
+        self.pressed = wp.digitalRead(22)
 
     def update(self):
         self.wait_for_press()
