@@ -1,5 +1,5 @@
 from random import randint
-class Arbitrator:
+class BBCON:
     def __init__(self):
         self.behaviours = []
         self.active_behaviours = []
@@ -22,18 +22,18 @@ class Arbitrator:
     def run_one_timestep(self):
         pass
 
-    def choose_action(self, actions,deterministic=True):
+    def choose_action(self, actions, deterministic=True):
         if deterministic:
             return max(actions)[1]
         else:
             s = sum(zip(*actions).__next__())
             weighted = [x[0] for x in actions]
-            rand_act = randint(0,100)
+            rand_act = randint(0, 100)
             for i in range(len(weighted)):
-                weighted[i] = 100*weighted[i]/s
-                if i>0:
+                weighted[i] = 100 * weighted[i] / s
+                if i > 0:
                     weighted[i] += weighted[i-1]
-                if weighted[i]>=rand_act:
+                if weighted[i] >= rand_act:
                     return actions[i][1]
         # Return tuple containing motor recommendations (one per motob) and a boolean indicating
         # whether or not the run should be halted
