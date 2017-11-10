@@ -1,28 +1,29 @@
 from framework import Sensob
 from utilities.ultrasonic import Ultrasonic
-from utilities.reflectance_sensors import ReflectanceSensors
+from utilities.irproximity_sensor import IRProximitySensor
 
 
 class IsItClose(Sensob):
     def __init__(self):
         super().__init__()
-        self.sensors = [Ultrasonic, ReflectanceSensors]
+        self.sensors = [Ultrasonic, IRProximitySensor]
         self.ultra = self.sensors[0]()
-        self.reflectance = self.sensors[1]()
+        self.ir = self.sensors[1]()
 
-    def set_value(self):
+    def set_priority(self):
         self.ultra.update()
         value_ultra = self.ultra.get_value()
 
-        self.reflectance.update()
-        value_reflectance = self.reflectance.get_value()
+        self.ir.update()
+        value_ir = self.ir.get_value()
 
-        print(value_ultra)
-        print(value_reflectance)
-        print()
+        self.value = self._normalize_value(value_ultra, value_ir)
 
+    def _normalize_value(self, ultra, ir):
+        ultra = 50 if ultra > 50 else 4 if ultra < 4 else ultra
+        ultra = 1 - self._map_range(ultra, 4, 50, 0, 1)
+        return max(ultra, *map(float, ir))
 
-isitclose = IsItClose()
-isitclose.sensors = [Ultrasonic, ReflectanceSensors]
-while True:
-    isitclose.set_value()
+    def _map_range(self, oldvalue, oldmin, oldmax, newmin, newmax):
+        return (((oldvalue - oldmin) * (newmax - newmin)) / (oldmax - oldmin)) + newmin
+
