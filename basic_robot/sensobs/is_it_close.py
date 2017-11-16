@@ -15,6 +15,7 @@ class IsItClose(Sensob):
         value_ir = self.sensors[1].get_value()
 
         self.value = self._normalize_value(value_ultra, value_ir)
+        print(self.value)
 
     def _normalize_value(self, ultra, ir):
         ultra = 50 if ultra > 50 else 4 if ultra < 4 else ultra
