@@ -13,7 +13,7 @@ class Scared(Motob):
     def operationalize(self):
         print("I am scared")
         speed = self.value
-        self.motors.backward(speed=speed/2,duration=0.5)
+        self.motors.backward(speed=speed/2,dur=0.5)
         self.motors.stop()
-        self.motors.left(speed=speed,duration=0.25)
-        self.motors.forward(speed=speed,duration=0.25)
+        self.motors.left(speed=speed,dur=0.25)
+        self.motors.forward(speed=speed,dur=0.25)
