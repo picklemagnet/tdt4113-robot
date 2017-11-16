@@ -17,5 +17,9 @@ class IsItScary(Sensob):
                 colour_sum += sum(imager.get_pixel(i,j))/3
         return colour_sum/(imager.xmax*imager.ymax)
 
+    def update(self):
+        super().update()
+        self.set_value()
+
     def set_value(self):
         self.value = self.average_shade(self.sensors[0].get_value())/255
