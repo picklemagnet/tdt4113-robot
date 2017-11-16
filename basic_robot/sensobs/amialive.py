@@ -6,6 +6,10 @@ class AmIAlive(Sensob):
         super().__init__()
         self.sensors.append(zumo_button)
 
+    def update(self):
+        super().update()
+        self.set_value()
+
     def set_value(self):
         self.value = self.sensors[0].get_value()
 
