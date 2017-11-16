@@ -9,8 +9,8 @@ class StartMoving(Behaviour):
         self.stopper = Behaviour()
         self.moving = 0
 
-    def add_stopper(self, Behaviour):
-        self.stopper = Behaviour
+    def add_stopper(self, behaviour):
+        self.stopper = behaviour
 
     def update(self):
         one = self.sense_and_act()
