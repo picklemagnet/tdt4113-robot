@@ -2,8 +2,8 @@ from framework import Behaviour
 from motobs.hyperscared import HyperScared
 
 class Terrified(Behaviour):
-    def __init__(self, arbitrator,is_it_close, is_it_scary):
-        Behaviour.__init__(arbitrator, HyperScared)
+    def __init__(self, is_it_close, is_it_scary):
+        Behaviour.__init__(HyperScared)
         self.sensobs.append(is_it_close)
         self.sensobs.append(is_it_scary)
 

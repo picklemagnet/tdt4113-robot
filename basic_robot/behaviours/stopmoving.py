@@ -3,8 +3,8 @@ from motobs.stop import Stop
 
 class StopMoving(Behaviour):
 
-    def __init__(self, arbitrator, start_moving):
-        Behaviour.__init__(arbitrator, Stop)
+    def __init__(self, start_moving):
+        Behaviour.__init__(Stop)
         self.checker = start_moving
         self.moving = 0
 

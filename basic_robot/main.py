@@ -11,14 +11,19 @@ from motobs.hyperscared import HyperScared
 from motobs.not_scared import NotScared
 from motobs.scared import Scared
 from motobs.stop import Stop
-
+from utilities.camera import Camera
+from utilities.zumo_button import ZumoButton
 
 def main():
     print("hello again mr freeman")
     bbcon = BBCON(Arbitrator())
 
-    sensobs = [IsItClose(), IsItScary(), AmIAlive()]
-    behavs = [CarryOn(), FleeBehaviour(), StartMoving(), StopMoving(), Terrified()]
+    sensobs = [IsItClose(), IsItScary(Camera()), AmIAlive(ZumoButton())]
+    behavs = [CarryOn(sensobs[0], sensobs[1]),
+              FleeBehaviour(sensobs[0], sensobs[1]),
+              StartMoving(sensobs[2]),
+              StopMoving(sensobs[2]),
+              Terrified(sensobs[0],sensobs[1])]
     motobs = [HyperScared, NotScared, Scared, Stop]
 
     for sensob in sensobs:
