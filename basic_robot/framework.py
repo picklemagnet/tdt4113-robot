@@ -36,7 +36,7 @@ class BBCON:
         actions = [(self.active_behaviours[x].weight, self.active_behaviours[x]) for x in range(len(self.active_behaviours))]
 
         action = self.arbitrator.choose_action(actions)
-        motob = self.motobs[action.__name__]
+        motob = self.motobs[type(action).__name__]
         motob.update()
 
 
