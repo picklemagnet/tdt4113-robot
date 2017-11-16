@@ -3,7 +3,7 @@ from framework import Motob
 class HyperScared(Motob):
     def __init__(self, motors):
         self.motors = motors
-        self.value = 0
+        self.value = 0.8
 
     def update(self):
         self.operationalize()
