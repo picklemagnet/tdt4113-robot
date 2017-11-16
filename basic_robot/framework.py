@@ -1,4 +1,11 @@
-from random import randint
+from random import choice, randint
+
+
+def random_step(motors,speed=0.25,duration=1):
+    dir = choice(['forward', 'backward', 'left', 'right'])
+    eval('Motors.' + dir)(motors, speed, duration)
+
+
 class BBCON:
     def __init__(self, arbitrator):
         self.behaviours = []
@@ -87,3 +94,4 @@ class Motob:
 
     def operationalize(self):
         pass
+
