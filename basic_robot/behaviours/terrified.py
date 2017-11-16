@@ -9,7 +9,7 @@ class Terrified(Behaviour):
     def update(self):
         one,two = self.sense_and_act()
         self.weight = one*two
-        return weight
+        return self.weight
 
     def sense_and_act(self):
         close = self.sensobs[0].get_value()
