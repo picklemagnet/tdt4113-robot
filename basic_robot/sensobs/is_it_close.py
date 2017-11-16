@@ -13,8 +13,6 @@ class IsItClose(Sensob):
         self.set_value()
 
     def set_value(self):
-        self.update()
-
         value_ultra = self.sensors[0].get_value()
         value_ir = self.sensors[1].get_value()
 
