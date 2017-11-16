@@ -15,14 +15,21 @@ class IsItScary(Sensob):
         colour_sum = 0
         for i in range(imager.xmax):
             for j in range(imager.ymax):
-                colour_sum += sum(imager.get_pixel(i,j))/3
+                colour_sum += sum(imager.get_pixel(i, j))/3
         return colour_sum/(imager.xmax*imager.ymax)
 
     def update(self):
         if(not(self.counter)):
             super().update()
             self.set_value()
-        self.counter = (self.counter +1) % 4
+        self.counter = (self.counter + 1) % 4
 
     def set_value(self):
-        self.value = 3 * (self.average_shade(self.sensors[0].get_value())/255)
+        value = self.average_shade(self.sensors[0].get_value())/255
+        value = 0.37 if value > 0.37 else value
+        value = self._map_range(value, 0, 0.37, 0, 1)
+        self.value = value
+
+    @staticmethod
+    def _map_range(oldvalue, oldmin, oldmax, newmin, newmax):
+        return (((oldvalue - oldmin) * (newmax - newmin)) / (oldmax - oldmin)) + newmin
