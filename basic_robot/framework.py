@@ -3,7 +3,7 @@ from utilities.motors import Motors
 
 
 def random_step(motors,speed=0.25,duration=1):
-    dir = choice(['forward', 'backward', 'left', 'right'])
+    dir = choice(['forward', 'left', 'right'])
     eval('Motors.' + dir)(motors, speed, duration)
 
 
@@ -34,7 +34,7 @@ class BBCON:
         for behaviour in self.behaviours:
             behaviour.update()
         actions = [(self.active_behaviours[x].weight, self.active_behaviours[x]) for x in range(len(self.active_behaviours))]
-
+        print(actions)
         action = self.arbitrator.choose_action(actions)
         motob = self.motobs[type(action).__name__]
         motob.update()
