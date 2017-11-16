@@ -9,7 +9,7 @@ class Terrified(Behaviour):
 
     def update(self):
         one,two = self.sense_and_act()
-        self.weight = one*two + 0.1 
+        self.weight = one*two + 0.1
         if( one < .5 or two < .5):
             self.weight = 0
         return self.weight

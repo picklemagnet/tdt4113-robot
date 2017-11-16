@@ -25,4 +25,4 @@ class IsItScary(Sensob):
         self.counter = (self.counter +1) % 4
 
     def set_value(self):
-        self.value = self.average_shade(self.sensors[0].get_value())/255
+        self.value = 3 * (self.average_shade(self.sensors[0].get_value())/255)
