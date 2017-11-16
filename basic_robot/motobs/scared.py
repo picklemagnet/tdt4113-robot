@@ -1,4 +1,4 @@
-from framework import Motob,random_step
+from framework import Motob, random_step
 from motors import Motors
 
 class Scared(Motob):

@@ -1,11 +1,11 @@
 from random import randint
 class BBCON:
-    def __init__(self):
+    def __init__(self, arbitrator):
         self.behaviours = []
         self.active_behaviours = []
         self.sensobs = []
         self.motobs = []
-        self.arbitrator = []
+        self.arbitrator = arbitrator
 
     def add_behaviour(self, behaviour):
         self.behaviours.append(behaviour)
@@ -17,10 +17,16 @@ class BBCON:
         self.active_behaviours.append(behaviour)
 
     def deactivate_behaviour(self, behaviour):
-        self.behaviours.remove(behaviour)
+        self.active_behaviours.remove(behaviour)
 
     def run_one_timestep(self):
-        pass
+        for sensob in self.sensobs:
+            sensob.update()
+        for behaviour in self.behaviours:
+            behaviour.update()
+        actions = [(x.weight, x.motob) for x in self.active_behaviours]
+        motob = self.arbitrator.choose_action(actions)
+        motob.update()
 
 
 class Sensob:
@@ -59,9 +65,9 @@ class Arbitrator:
 
 
 class Behaviour:
-    def __init__(self, arbitrator):
-        self.arbitrator = arbitrator
+    def __init__(self, motob):
         self.sensobs = []
+        self.motob = motob
         self.weight = 0  # priority * match_degree
 
     def sense_and_act(self):
