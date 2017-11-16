@@ -1,5 +1,14 @@
 from random import choice, randint
 from utilities.motors import Motors
+from motobs.hyperscared import HyperScared
+from motobs.scared import Scared
+from motobs.not_scared import NotScared
+from motobs.stop import Stop
+from behaviours.flee import FleeBehaviour
+from behaviours.startmoving import StartMoving
+from behaviours.stopmoving import StopMoving
+from behaviours.terrified import Terrified
+from behaviours.carryon import CarryOn
 
 
 def random_step(motors,speed=0.25,duration=1):
@@ -12,7 +21,10 @@ class BBCON:
         self.behaviours = []
         self.active_behaviours = []
         self.sensobs = []
-        self.motobs = []
+        self.motor = Motors()
+
+        not_scared = NotScared(self.motor)
+        self.motobs = {"Terrified": HyperScared(self.motor), "StartMoving": not_scared, "CarryOn": not_scared, "FleeBehaviour": Scared(self.motor), "StopMoving": Stop(self.motor)}
         self.arbitrator = arbitrator
 
     def add_behaviour(self, behaviour):
@@ -35,8 +47,10 @@ class BBCON:
             sensob.update()
         for behaviour in self.behaviours:
             behaviour.update()
-        actions = [(x.weight, x.motob) for x in self.active_behaviours]
-        motob = self.arbitrator.choose_action(actions)()
+        actions = [(self.active_behaviours[x].weight, self.active_behaviours[x]) for x in range(len(self.active_behaviours))]
+
+        action = self.arbitrator.choose_action(actions)
+        motob = self.motobs[action.__name__]
         motob.update()
 
 

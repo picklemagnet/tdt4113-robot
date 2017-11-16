@@ -2,8 +2,8 @@ from framework import Motob, random_step
 from utilities.motors import Motors
 
 class Scared(Motob):
-    def __init__(self):
-        self.motors = Motors()
+    def __init__(self, motors):
+        self.motors = motors
         self.value = 0.6
 
     def update(self):
@@ -11,6 +11,7 @@ class Scared(Motob):
 
     #value=(speed[,duration])
     def operationalize(self):
+        print("I am scared")
         speed = self.value
         self.motors.backwards(speed=speed/2,duration=0.5)
         self.motors.stop()

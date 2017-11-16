@@ -2,8 +2,8 @@ from framework import Motob,random_step
 from utilities.motors import Motors
 
 class HyperScared(Motob):
-    def __init__(self):
-        self.motors = Motors()
+    def __init__(self, motors):
+        self.motors = motors
         self.value = 0
 
     def update(self):
@@ -11,6 +11,7 @@ class HyperScared(Motob):
 
     #value=(speed[,duration])
     def operationalize(self):
+        print("I am hyperscared")
         speed = self.value
         self.stop()
         self.motors.left(speed=speed,duration=0.25)

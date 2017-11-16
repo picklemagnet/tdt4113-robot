@@ -2,8 +2,8 @@ from framework import Motob,random_step
 from utilities.motors import Motors
 
 class Stop(Motob):
-    def __init__(self):
-        self.motors = Motors()
+    def __init__(self, motors):
+        self.motors = motors
         self.value = 0
 
     def update(self):
@@ -11,4 +11,5 @@ class Stop(Motob):
 
     #value=(speed[,duration])
     def operationalize(self):
+        print("I am stopped")
         self.motors.stop()
