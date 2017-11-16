@@ -31,6 +31,7 @@ class BBCON:
     def run_one_timestep(self):
         for sensob in self.sensobs:
             sensob.update()
+            print(type(sensob).__name__,":",sensob.value)
         for behaviour in self.behaviours:
             behaviour.update()
         actions = [(self.active_behaviours[x].weight, self.active_behaviours[x]) for x in range(len(self.active_behaviours))]
