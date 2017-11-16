@@ -8,7 +8,7 @@ class IsItScary(Sensob):
     def __init__(self, camera: Camera):
         super().__init__()
         self.sensors.append(camera)
-        self.counter = 0
+        #self.counter = 0
 
     def average_shade(self, image: Image):
         imager = Imager(image=image)
@@ -19,10 +19,10 @@ class IsItScary(Sensob):
         return colour_sum/(imager.xmax*imager.ymax)
 
     def update(self):
-        if(not(self.counter)):
-            super().update()
-            self.set_value()
-        self.counter = (self.counter + 1) % 4
+        #if(not(self.counter)):
+        super().update()
+        self.set_value()
+        #self.counter = (self.counter + 1) % 4
 
     def set_value(self):
         value = self.average_shade(self.sensors[0].get_value())/255
