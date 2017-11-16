@@ -27,7 +27,7 @@ class IsItScary(Sensob):
     def set_value(self):
         value = self.average_shade(self.sensors[0].get_value())/255
         value = 0.37 if value > 0.37 else value
-        value = self._map_range(value, 0, 0.37, 0, 1)
+        value = 1 - self._map_range(value, 0, 0.37, 0, 1)
         self.value = value
 
     @staticmethod
