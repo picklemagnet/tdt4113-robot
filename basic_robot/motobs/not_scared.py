@@ -14,7 +14,7 @@ class NotScared(Motob):
     def operationalize(self):
         print("I am not scared")
         speed = self.value
-        i = randint(1, 3):
+        i = randint(1, 3)   
         if(i == 1):
             self.motors.left(speed=speed, dur = 0.25)
             self.motors.forward(speed=speed, dur = 0.75)
