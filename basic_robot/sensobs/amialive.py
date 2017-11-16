@@ -3,7 +3,7 @@ from framework import Sensob
 
 class AmIAlive(Sensob):
     def __init__(self, Zumo_Button):
-        Sensob.__init__()
+        super().__init__()
         self.sensobs.append(Zumo_Button)
 
 
