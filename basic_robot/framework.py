@@ -48,9 +48,8 @@ class Sensob:
         for sensor in self.sensors:
             sensor.update()
 
-    def set_value(self):
-        pass
-        # DO STUFF HERE with sensor.get_value()
+    def get_value(self):
+        return self.value
 
 
 class Arbitrator:
