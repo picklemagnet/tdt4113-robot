@@ -34,7 +34,7 @@ class BBCON:
             print(type(sensob).__name__,":",sensob.value)
         for behaviour in self.behaviours:
             behaviour.update()
-            print(type(behaviour) + " current weight is ", behaviour.weight)
+            print(type(behaviour), " current weight is ", behaviour.weight)
         actions = [(self.active_behaviours[x].weight, self.active_behaviours[x]) for x in range(len(self.active_behaviours))]
         print(actions)
         action = self.arbitrator.choose_action(actions)
