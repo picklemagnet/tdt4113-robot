@@ -17,8 +17,8 @@ def main():
     print("hello again mr freeman")
     bbcon = BBCON(Arbitrator())
 
-    sensobs = [IsItClose, IsItScary, AmIAlive]
-    behavs = [CarryOn, FleeBehaviour, StartMoving, StopMoving, Terrified]
+    sensobs = [IsItClose(), IsItScary(), AmIAlive()]
+    behavs = [CarryOn(), FleeBehaviour(), StartMoving(), StopMoving(), Terrified()]
     motobs = [HyperScared, NotScared, Scared, Stop]
 
     for sensob in sensobs:
