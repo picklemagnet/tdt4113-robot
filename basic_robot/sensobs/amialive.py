@@ -2,9 +2,9 @@ from framework import Sensob
 
 
 class AmIAlive(Sensob):
-    def __init__(self, Zumo_Button):
+    def __init__(self, zumo_button):
         super().__init__()
-        self.sensors.append(Zumo_Button)
+        self.sensors.append(zumo_button)
 
 
     def set_value(self):
