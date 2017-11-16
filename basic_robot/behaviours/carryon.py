@@ -9,7 +9,7 @@ class CarryOn(Behaviour):
 
     def update(self):
         one, two = self.sense_and_act()
-        self.weight = 1 - one*two
+        self.weight = 0.5 - one*two
 
     def sense_and_act(self):
         close = self.sensobs[0].get_value()
