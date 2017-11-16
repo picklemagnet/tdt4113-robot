@@ -7,17 +7,11 @@ class IsItClose(Sensob):
     def __init__(self, sensors):
         super().__init__()
         self.sensors = sensors
-        #self.ultra = self.sensors[0]
-        #self.ir = self.sensors[1]
-        #self.ultra = self.sensors[0]()
-        #self.ir = self.sensors[1]()
 
     def set_priority(self):
         self.update()
-        #self.ultra.update()
-        value_ultra = self.sensors[0].get_value()
 
-        #self.ir.update()
+        value_ultra = self.sensors[0].get_value()
         value_ir = self.sensors[1].get_value()
 
         self.value = self._normalize_value(value_ultra, value_ir)

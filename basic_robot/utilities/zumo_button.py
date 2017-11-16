@@ -1,8 +1,8 @@
 __author__ = 'keithd'
 import wiringpi as wp
 
-class ZumoButton():
 
+class ZumoButton():
     def __init__(self):
         wp.wiringPiSetupGpio()  # Dennen linja må ha kjørt hvis motorene skal fungere!!!
         wp.pinMode(22, 0)
