@@ -1,4 +1,4 @@
-from framework import *
+from framework import Arbitrator, BBCON, Motors
 from sensobs.is_it_close import IsItClose
 from sensobs.is_it_scary import IsItScary
 from sensobs.amialive import AmIAlive
