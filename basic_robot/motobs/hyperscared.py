@@ -1,5 +1,4 @@
-from framework import Motob,random_step
-from utilities.motors import Motors
+from framework import Motob
 
 class HyperScared(Motob):
     def __init__(self, motors):

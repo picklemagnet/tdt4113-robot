@@ -18,7 +18,7 @@ from utilities.zumo_button import ZumoButton
 
 def main():
     print("hello again mr freeman")
-    bbcon = BBCON(Arbitrator())
+    bbcon = BBCON(Arbitrator(), [HyperScared, NotScared, Scared, Stop])
 
     sensobs = [IsItClose([Ultrasonic(), IRProximitySensor()]), IsItScary(Camera()), AmIAlive(ZumoButton())]
     behavs = [CarryOn(sensobs[0], sensobs[1]),
