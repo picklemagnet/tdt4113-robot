@@ -1,7 +1,7 @@
 from framework import Motob,random_step
 from motors import Motors
 
-class Scared(Motob):
+class HyperScared(Motob):
     def __init__(self):
         self.motors = Motors()
         self.value = 0
