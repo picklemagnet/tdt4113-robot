@@ -9,7 +9,7 @@ class FleeBehaviour(Behaviour):
 
     def update(self):
         one, two = self.sense_and_act()
-        self.weight = one * two
+        self.weight = max(one, two)
         return self.weight
 
     def sense_and_act(self):
