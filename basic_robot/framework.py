@@ -22,9 +22,6 @@ class BBCON:
     def add_sensob(self, sensob):
         self.sensobs.append(sensob)
 
-    def add_motob(self, motob):
-        self.motobs.append(motob)
-
     def activate_behaviour(self, behaviour):
         self.active_behaviours.append(behaviour)
 
