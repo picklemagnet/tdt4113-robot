@@ -12,6 +12,6 @@ class HyperScared(Motob):
     def operationalize(self):
         print("I am hyperscared")
         speed = self.value
-        self.stop()
+        self.motors.stop()
         self.motors.left(speed=speed,dur=0.25)
         self.motors.right(speed=speed,dur=0.75)
