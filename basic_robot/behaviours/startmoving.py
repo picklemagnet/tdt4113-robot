@@ -6,7 +6,7 @@ class StartMoving(Behaviour):
     def __init__(self, am_i_alive):
         super().__init__(NotScared)
         self.sensobs.append(am_i_alive)
-        self.stopper = Behaviour()
+        self.stopper = None
         self.moving = 0
 
     def add_stopper(self, behaviour):
