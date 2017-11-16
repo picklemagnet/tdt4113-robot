@@ -14,6 +14,7 @@ from motobs.stop import Stop
 
 
 def main():
+    print("hello again mr freeman")
     bbcon = BBCON(Arbitrator())
 
     sensobs = [IsItClose, IsItScary, AmIAlive]
@@ -28,4 +29,8 @@ def main():
     for motob in motobs:
         bbcon.add_motob(motob)
 
+    while True:
+        bbcon.run_one_timestep()
+
+print("hello")
 main()
