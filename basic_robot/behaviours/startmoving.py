@@ -4,7 +4,7 @@ from motobs.not_scared import NotScared
 class StartMoving(Behaviour):
 
     def __init__(self, am_i_alive):
-        Behaviour.__init__(NotScared)
+        super().__init__(NotScared)
         self.sensobs.append(am_i_alive)
         self.stopper = Behaviour()
         self.moving = 0

@@ -4,7 +4,7 @@ from motobs.stop import Stop
 class StopMoving(Behaviour):
 
     def __init__(self, start_moving):
-        Behaviour.__init__(Stop)
+        super().__init__(Stop)
         self.checker = start_moving
         self.moving = 0
 

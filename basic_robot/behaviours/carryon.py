@@ -3,7 +3,7 @@ from motobs.not_scared import NotScared
 
 class CarryOn(Behaviour):
     def __init__(self, is_it_close, is_it_scary):
-        Behaviour.__init__(NotScared)
+        super().__init__(NotScared)
         self.sensobs.append(is_it_close)
         self.sensobs.append(is_it_scary)
 

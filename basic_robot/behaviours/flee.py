@@ -3,7 +3,7 @@ from motobs.scared import Scared
 
 class FleeBehaviour(Behaviour):
     def __init__(self, is_it_close, is_it_scary):
-        Behaviour.__init__(Scared)
+        super().__init__(Scared)
         self.sensobs.append(is_it_close)
         self.sensobs.append(is_it_scary)
 
