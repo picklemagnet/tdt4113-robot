@@ -3,14 +3,16 @@ from motobs.stop import Stop
 
 class StopMoving(Behaviour):
 
-    def __init__(self, start_moving):
+    def __init__(self, start_moving, am_i_alive):
         super().__init__(Stop)
+
         self.checker = start_moving
         self.moving = 0
+        self.sensobs.append(am_i_alive)
 
     def update(self):
         one = self.sense_and_act()
-        if(self.moving):
+        if self.moving:
             self.weight = one
 
 
@@ -22,7 +24,7 @@ class StopMoving(Behaviour):
         self.moving = number
 
     def get_weight(self):
-        if (self.weight):
+        if self.weight:
             self.moving = 0
             self.weight = 0
             try:

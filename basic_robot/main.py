@@ -24,8 +24,9 @@ def main():
     behavs = [CarryOn(sensobs[0], sensobs[1]),
               FleeBehaviour(sensobs[0], sensobs[1]),
               StartMoving(sensobs[2]),
-              StopMoving(sensobs[2]),
               Terrified(sensobs[0], sensobs[1])]
+    
+    behavs.append(StopMoving(behavs[4], sensobs[2]))
     motobs = [HyperScared, NotScared, Scared, Stop]
 
     for sensob in sensobs:
