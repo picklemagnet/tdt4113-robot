@@ -12,18 +12,20 @@ from motobs.not_scared import NotScared
 from motobs.scared import Scared
 from motobs.stop import Stop
 from utilities.camera import Camera
+from utilities.irproximity_sensor import IRProximitySensor
+from utilities.ultrasonic import Ultrasonic
 from utilities.zumo_button import ZumoButton
 
 def main():
     print("hello again mr freeman")
     bbcon = BBCON(Arbitrator())
 
-    sensobs = [IsItClose(), IsItScary(Camera()), AmIAlive(ZumoButton())]
+    sensobs = [IsItClose([Ultrasonic(), IRProximitySensor()]), IsItScary(Camera()), AmIAlive(ZumoButton())]
     behavs = [CarryOn(sensobs[0], sensobs[1]),
               FleeBehaviour(sensobs[0], sensobs[1]),
               StartMoving(sensobs[2]),
               StopMoving(sensobs[2]),
-              Terrified(sensobs[0],sensobs[1])]
+              Terrified(sensobs[0], sensobs[1])]
     motobs = [HyperScared, NotScared, Scared, Stop]
 
     for sensob in sensobs:
@@ -36,6 +38,7 @@ def main():
 
     while True:
         bbcon.run_one_timestep()
+
 
 print("hello")
 main()

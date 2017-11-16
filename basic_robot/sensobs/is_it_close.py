@@ -4,11 +4,11 @@ from utilities.irproximity_sensor import IRProximitySensor
 
 
 class IsItClose(Sensob):
-    def __init__(self):
+    def __init__(self, sensors):
         super().__init__()
-        self.sensors = [Ultrasonic, IRProximitySensor]
-        self.ultra = self.sensors[0]()
-        self.ir = self.sensors[1]()
+        self.sensors = sensors
+        #self.ultra = self.sensors[0]()
+        #self.ir = self.sensors[1]()
 
     def set_priority(self):
         self.ultra.update()
@@ -24,6 +24,7 @@ class IsItClose(Sensob):
         ultra = 1 - self._map_range(ultra, 4, 50, 0, 1)
         return max(ultra, *map(float, ir))
 
-    def _map_range(self, oldvalue, oldmin, oldmax, newmin, newmax):
+    @staticmethod
+    def _map_range(oldvalue, oldmin, oldmax, newmin, newmax):
         return (((oldvalue - oldmin) * (newmax - newmin)) / (oldmax - oldmin)) + newmin
 

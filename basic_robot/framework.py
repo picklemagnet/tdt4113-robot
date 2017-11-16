@@ -46,7 +46,7 @@ class Sensob:
 
     def update(self):
         for sensor in self.sensors:
-            print(sensor)
+            print(sensor.value)
             sensor.update()
 
     def set_value(self):
