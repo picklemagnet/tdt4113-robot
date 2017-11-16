@@ -1,5 +1,5 @@
 from framework import Motob,random_step
-from motors import Motors
+from utilities.motors import Motors
 
 class Stop(Motob):
     def __init__(self):
