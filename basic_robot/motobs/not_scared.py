@@ -11,10 +11,4 @@ class NotScared(Motob):
 
     #value = (steps[,speed[,duration]])
     def operationalize(self):
-        for i in range(value[0]):
-            if len(value)==1:
-                random_step(m,speed=speed,duration=0.5)
-            elif len(value)==2:
-                random_step(m,speed=value[1],duration=0.5)
-            elif len(value)==3:
-                random_step(m,speed=value[1],duration=value[2])
+        random_step()

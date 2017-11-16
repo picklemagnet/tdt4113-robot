@@ -6,8 +6,7 @@ class Stop(Motob):
         self.motors = Motors()
         self.value = 0
 
-    def update(self,rec):
-        self.value = rec
+    def update(self):
         self.operationalize()
 
     #value=(speed[,duration])

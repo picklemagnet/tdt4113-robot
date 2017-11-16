@@ -4,16 +4,15 @@ from motors import Motors
 class Scared(Motob):
     def __init__(self):
         self.motors = Motors()
-        self.value = 0
+        self.value = 0.6
 
-    def update(self,rec):
-        self.value = rec
+    def update(self):
         self.operationalize()
 
     #value=(speed[,duration])
     def operationalize(self):
-        speed,duration = self.value
-        self.motors.backwards(speed=speed//2,duration=duration)
+        speed = self.value
+        self.motors.backwards(speed=speed/2,duration=0.5)
         self.motors.stop()
-        self.motors.left(speed=speed,duration=0.5)
-        self.motors.forwards(speed=speed,duration=duration)
+        self.motors.left(speed=speed,duration=0.25)
+        self.motors.forwards(speed=speed,duration=0.25)
