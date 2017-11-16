@@ -4,8 +4,7 @@ class NotScared(Motob):
     def __init__(self):
         self.value = 0
 
-    def update(self,rec):
-        self.value = rec
+    def update(self):
         self.operationalize()
 
     #value = (steps[,speed[,duration]])
