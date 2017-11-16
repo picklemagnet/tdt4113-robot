@@ -1,9 +1,10 @@
 from framework import Behaviour
+from motobs.not_scared import NotScared
 
 class StartMoving(Behaviour):
 
     def __init__(self, arbitrator, am_i_alive):
-        Behaviour.__init__(arbitrator)
+        Behaviour.__init__(arbitrator, NotScared)
         self.sensobs.append(am_i_alive)
         self.stopper = Behaviour()
         self.moving = 0

@@ -35,7 +35,7 @@ class BBCON:
         for behaviour in self.behaviours:
             behaviour.update()
         actions = [(x.weight, x.motob) for x in self.active_behaviours]
-        motob = self.arbitrator.choose_action(actions)
+        motob = self.arbitrator.choose_action(actions)()
         motob.update()
 
 

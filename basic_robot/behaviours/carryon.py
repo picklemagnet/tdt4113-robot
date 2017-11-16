@@ -1,9 +1,9 @@
 from framework import Behaviour
+from motobs.not_scared import NotScared
 
 class CarryOn(Behaviour):
-
     def __init__(self, arbitrator, is_it_close, is_it_scary):
-        Behaviour.__init__(arbitrator)
+        Behaviour.__init__(arbitrator, NotScared)
         self.sensobs.append(is_it_close)
         self.sensobs.append(is_it_scary)
 
