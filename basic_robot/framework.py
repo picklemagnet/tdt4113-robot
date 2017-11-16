@@ -60,7 +60,7 @@ class Arbitrator:
 
     def choose_action(self, actions, deterministic=True):
         if deterministic:
-            return max(actions)[1]
+            return max(actions, key=lambda x: x[0])[1]
         else:
             s = sum(zip(*actions).__next__())
             weighted = [x[0] for x in actions]
